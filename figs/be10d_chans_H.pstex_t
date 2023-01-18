@@ -1,0 +1,21 @@
+\begin{picture}(0,0)%
+\includegraphics{figs/be10d_chans_H.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(9594,5643)(247,-5589)
+\put(601,-4336){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\sfdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\alpha$ channel}%
+}}}}
+\put(9826,-736){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\sfdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$H_\alpha(\xi_\alpha)$}%
+}}}}
+\put(9751,-4486){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\sfdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$H_\gamma(\xi_\gamma)$}%
+}}}}
+\put(9751,-2461){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\sfdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$H_\beta(\xi_\beta)$}%
+}}}}
+\end{picture}%

@@ -1,0 +1,291 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   A Beamer presentation by Rodrigo Platte, Arizona State University, May 18 2007.
+%   Feel free to modify this file to generate your own presentation.
+%
+%   This Latex file should be compiled with pdflatex, for this reason, it is recommended 
+% that you convert the figures in your presentation to pdf. Postscript files (.ps and .eps) 
+% will not compile properly when pdflatex is used. You may use commands like "convert"
+% or "eps2pdf" (in linux) to convert your figures. 
+%
+%   The final output is a PDF file that is best visualized with Adobe Reader.
+%
+%   More information can be found in beameruserguide.pdf
+%
+%   This presentation requires the following files:
+%   BEAMERoptions.tex, ASUlogo.pdf,  asu.pdf, beamerouterthememathASUlogo.sty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\documentclass[compress,xcolor=pst,english,10pt]{beamer}
+% Use this instead for printing and distributing your slides (suppresses overlays)
+
+
+
+%%%%%%%%%%%%%%% CHOOSE STYLE OUTPUT %%%%%%
+% For presentation, uncomment this
+\documentclass[english,10pt,compress]{beamer}
+\input{BEAMERoptions.tex}	
+%	
+% Look minimalista ideal para imprimir
+%\documentclass[compress,english,10pt]{beamer}
+% \input{printout.tex}		                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+% Load packages
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+
+\usepackage{graphics}
+\usepackage{pstricks}
+%\usepackage{pst-node,pst-tree}
+%\usepackage{pstricks-add}
+\usepackage{pst-node}
+
+%\usepackage{multimedia} % for movies and sound
+%\usepackage{times}
+%\usepackage{pst-plot}
+%\usepackage{pst-all}
+%\usepackage{pst-all}
+%\usepackage{longtable}
+\usepackage{pdftricks}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{fancybox}
+\usepackage{mathrsfs,pifont}
+\usepackage{txfonts} 
+\usepackage{comment}
+
+%\usepackage{graphicx}
+%\usepackage{color} 
+%\input{psfig}           % Capability to place PostScript drawings
+%%%%%%%%%%%%%%%%%%%%%
+
+% Define new colors
+
+\newrgbcolor{LightBlue}{0.68 0.85 0.9}
+
+\definecolor{verde}{rgb}{0.0,0.5,0.0}
+\definecolor{brick}{rgb}{0.5,0.0,0.0}
+\definecolor{grish}{rgb}{0.9,0.9,0.9}
+\definecolor{grisi}{rgb}{0.9,0.9,0.9}
+
+\newrgbcolor{verde}{0 .5 0} 
+\newrgbcolor{brick}{0.5 0 0} 
+\newrgbcolor{darkgreen}{0.3 0.6 0}
+\newrgbcolor{lightgreen}{139 255 182} 
+\newrgbcolor{olive}{0.5 0.7 0}
+\newrgbcolor{mellow}{.847 .72 .525}
+
+% Some useful commands
+\newcommand{\cita}[1]{{\verde \small #1}}
+\newcommand{\scita}[1]{{\verde  \scriptsize #1}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bc}{\begin{columns}}
+\newcommand{\ec}{\end{columns}}
+
+\newcommand{\shalfzero}{^{10}{\rm Be(0}^+{\rm )}\otimes \nu 2s_{1/2}}
+\newcommand{\shalftwo}{^{10}{\rm Be(2}^+{\rm )}\otimes \nu 2s_{1/2}}
+\newcommand{\dhalfzero}{^{10}{\rm Be(0}^+{\rm )}\otimes \nu 1d_{5/2}}
+\newcommand{\dhalftwo}{^{10}{\rm Be(2}^+{\rm )}\otimes \nu 1d_{5/2}}
+\newcommand{\be}{$^{11}{\rm Be}$}
+
+\newcommand{\gitem}[1]{\item {\textcolor{verde}{  #1}}}
+\newcommand{\ritem}[1]{\item {\textcolor{brick}{  #1}}}
+\newcommand{\bitem}[1]{\item {\textcolor{blue}{  #1}}}
+\newcommand{\slide}[1]{\begin{frame} \frametitle{ #1}}
+\newcommand{\finslide}{{\end{frame}}}
+\newcommand{\sch}{Schr\"odinger}
+\newcommand{\vecr}{{\bf r}}
+\newcommand{\vecs}{{\bf s}}
+\newcommand{\bs}{\mathbf{s}}
+\newcommand{\vecR}{{\bf R}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\Vcoup}{V_\mathrm{coup}}
+\newcommand{\half}{\frac{1}{2}}
+
+
+\newcommand{\threej}[6]{\begin{pmatrix}#1&#2&#3\\#4&#5&#6\end{pmatrix}}
+\newcommand{\sixj}[6]{\begin{Bmatrix}#1&#2&#3\\#4&#5&#6\end{Bmatrix}}
+%\newcommand{\var}[1]{\texttt\textcolor{brick}{ #1}}
+\newcommand{\varblue}[1]{\texttt{\blue  #1}}
+\newcommand{\var}[1]{\texttt{\blue  #1}}
+
+\newcommand{\boxedeqn}[1]{%
+  \[\fbox{%
+      \addtolength{\linewidth}{-2\fboxsep}%
+      \addtolength{\linewidth}{-2\fboxrule}%
+      \begin{minipage}{\linewidth}%
+      \begin{equation}\nonumber#1\end{equation}%
+      \end{minipage}%
+    }\]%
+}
+
+\newcommand{\miframebox}[1]{\psshadowbox[fillcolor=lightgreen,fillstyle=solid,linecolor=red,framearc=0.25]{\textcolor{brick}{  #1 }}}
+\newcommand{\mibox}[2]{%
+\begin{columns}
+\column{#1}
+\begin{block}{}
+\begin{center}
+#2
+\end{center}
+\end{block}
+\end{columns}
+}
+
+
+
+\lstnewenvironment{miexample}[1][]{%
+  \lstset{basicstyle=\footnotesize\ttfamily,columns=flexible,%
+    frame=single,backgroundcolor=\color{yellow!20},%
+    xleftmargin=\fboxsep,xrightmargin=\fboxsep,gobble=1%
+    }\lstset{#1}}{}
+\lstnewenvironment{examplesmall}[1][]{%
+  \lstset{basicstyle=\tiny\ttfamily,columns=flexible,%
+    frame=single,backgroundcolor=\color{yellow!20},%
+    xleftmargin=\fboxsep,xrightmargin=\fboxsep,gobble=2%
+    }\lstset{#1}}{}
+
+
+
+
+\newcommand{\mishadowbox}[1]{\psshadowbox[fillcolor=lightgreen]{\textcolor{brick}{  #1 }}}
+\def\nuc#1#2{\relax\ifmmode{}^{#1}{\protect\text{#2}}\else${}^{#1}$#2\fi}
+
+\newcommand{\Mibox}[2]{%
+\begin{minipage}{#1}
+\begin{block}{}
+#2
+\end{block}
+\end{minipage}
+}
+
+
+
+%% ---------------------------  The title and name ----------------------------- 
+%% Note: [short title]{long title}, [short author(s) name]{long author(s) name}
+\title[International School of Physics Enrico Fermi, Varenna, 2017]%
+  {Models for nuclear reactions with weakly-bound systems}
+\author[A. M. Moro]{\emph{Antonio M. Moro} }
+\date{}{}
+%-------------------------------------------------------------------------------
+
+
+
+%%----------------------------  Show  logo in title page -----------------------
+\institute[Universidad de Sevilla, Spain]{
+\includegraphics[height=1.20cm]{figs/logous.eps} \\
+{\color{ASUred} Universidad de Sevilla, Spain} \\
+\vspace{0.5cm}
+{\large \bf International School of Physics Enrico Fermi \\ Varenna, 14-19 July 2017} 
+}
+%%-------------------------------------------------------------------------------
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Presentation Starts Here %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\PassOptionsToPackage{prologue}{xcolor}
+
+
+\begin{document}
+\newcommand{\images}{figs}
+\graphicspath{{./}{figs}}
+
+%% ----------------------  Title frame ---------------------------- %%
+\begin{frame}[plain]
+	\titlepage
+	\transboxout
+\end{frame}
+%% -----------------------------------------------------------------%%
+
+%%%% Outline (optional) %%%%%%%%%%%%%%%%%%%%%
+%% The outline depends on \section and \subsection commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]
+  \frametitle{Table of contents}
+%  \tableofcontents[pausesections]
+%  \begin{scriptsize}
+  \tableofcontents
+%  \transboxin
+%  \end{scriptsize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{intro}
+
+\input{modelling}
+
+\input{elastic}
+
+\input{inelastic}
+
+%\input{breakup}
+
+\input{breakup-short}
+
+
+%\input{lecture3}
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%% General scattering theory and single-scattering 
+ \input{intro}
+ \input{elastic}
+%-----------------------------------------------------------------
+
+%%% ------- SCATTERING WITH INTERNAL DEGREES OF FREEDOM ----------------
+% \input{inelastic} % Scattering theory for inelastic scattering
+%%\input{resum-cc} % NO
+%\input{inel-models} % Specific models for inelastic scattering: collective
+%\input{cc-cluster} % Cluster models
+%---------------------------------------------------------------------
+
+
+%%%----------------- TRANSFER-----------------------------------------
+\input{transfer}
+
+%%% --------------- SEMICLASSICAL THEORY -----------------------------
+\input{semiclas}
+
+%%%-------------- REACTIONS WITH EXOTIC NUCLEI ------------------------
+\input{exoticos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{fr-examples}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
